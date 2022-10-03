@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Statistics } from 'components/Statistics/Statistics';
 import { FeetbackOptions } from './FeetbackOptions/FeetbackOptions';
 import { Section } from './Sections/Section';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = {
@@ -37,16 +38,21 @@ export class App extends Component {
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
-        <Section titel={'Statistics'}>
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            positivePercentage={positivePercentage}
-          />
-        </Section>
+        {total !== 0 ? (
+          <Section titel={'Statistics'}>
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
+          </Section>
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
       </div>
     );
   }
 }
+//Notification message="There is no feedback"

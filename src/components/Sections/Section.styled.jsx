@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Sections = styled.section`
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
+`;
+export const Titel = styled.h1`
+  font-size: 30px;
+  margin-bottom: 40px;
 `;
